@@ -1,16 +1,16 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact, toggleMarked } from '../../../redux/contactsSlice';
+import { deleteContact, toggleMarked } from '../../../redux/operations';
 import css from './ContactItem.module.css';
 
 export const ContactItem = ({ contact }) => {
   const dispatch = useDispatch();
 
-  const handleToggle = () => {
-    dispatch(toggleMarked(contact.id));
-  };
-
   const handleDelete = () => {
     dispatch(deleteContact(contact.id));
+  };
+
+  const handleToggle = () => {
+    dispatch(toggleMarked(contact));
   };
 
   return (
