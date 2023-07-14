@@ -1,28 +1,10 @@
 import { useSelector } from 'react-redux';
 import { ContactItem } from './ContactItem/ContactItem';
-import { getContacts, getStatusFilter } from '../../redux/selectors';
-
-import { statusFilters } from '../../redux/constants';
+import { selectVisibleContacts } from '../../redux/selectors';
 import css from './ContactList.module.css';
 
-const getVisibleTasks = (contacts, statusFilter) => {
-  switch (statusFilter) {
-    case statusFilters.active:
-      return contacts.filter(contact => !contact.marked);
-
-    case statusFilters.marked:
-      return contacts.filter(contact => contact.marked);
-
-    default:
-      return contacts;
-  }
-};
-
 export const ContactList = () => {
-  const contacts = useSelector(getContacts);
-  const statusFilter = useSelector(getStatusFilter);
-
-  const VisibleTasks = getVisibleTasks(contacts, statusFilter);
+  const VisibleTasks = useSelector(selectVisibleContacts);
 
   return (
     <ul className={css.list}>
