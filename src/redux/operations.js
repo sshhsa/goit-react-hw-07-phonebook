@@ -29,9 +29,9 @@ export const addContact = createAsyncThunk(
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
-  async (taskId, thunkAPI) => {
+  async (contactId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/contacts/${taskId}`);
+      const response = await axios.delete(`/contacts/${contactId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -41,10 +41,10 @@ export const deleteContact = createAsyncThunk(
 
 export const toggleMarked = createAsyncThunk(
   'contacts/toggleMarked',
-  async (task, thunkAPI) => {
+  async (contact, thunkAPI) => {
     try {
-      const response = await axios.put(`/contacts/${task.id}`, {
-        marked: !task.marked,
+      const response = await axios.put(`/contacts/${contact.id}`, {
+        marked: !contact.marked,
       });
       return response.data;
     } catch (error) {

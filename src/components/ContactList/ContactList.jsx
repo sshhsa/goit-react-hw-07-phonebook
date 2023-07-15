@@ -3,7 +3,7 @@ import { ContactItem } from './ContactItem/ContactItem';
 import { selectVisibleContacts } from '../../redux/selectors';
 import css from './ContactList.module.css';
 
-export const ContactList = () => {
+export function ContactList() {
   const visibleContacts = useSelector(selectVisibleContacts);
 
   return (
@@ -15,4 +15,4 @@ export const ContactList = () => {
       ))}
     </ul>
   );
-};
+}
