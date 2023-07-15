@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
 import { selectIsLoading, selectError } from 'redux/selectors';
 
-export const App = () => {
+export function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -26,4 +26,4 @@ export const App = () => {
       <ContactList />
     </Layout>
   );
-};
+}

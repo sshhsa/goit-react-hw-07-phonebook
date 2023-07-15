@@ -2,7 +2,7 @@ import { StatusFilter } from 'components/StatusFilter/StatusFilter';
 import { ContactCounter } from 'components/ContactCounter/ContactCounter';
 import css from './AppBar.module.css';
 
-export const AppBar = () => {
+export function AppBar() {
   return (
     <header className={css.wrapper}>
       <section className={css.section}>
@@ -15,4 +15,4 @@ export const AppBar = () => {
       </section>
     </header>
   );
-};
+}

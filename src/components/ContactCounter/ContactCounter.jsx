@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectContactCount } from '../../redux/selectors';
 import css from './ContactCounter.module.css';
 
-export const ContactCounter = () => {
+export function ContactCounter() {
   const { active, marked } = useSelector(selectContactCount);
 
   return (
@@ -15,4 +15,4 @@ export const ContactCounter = () => {
       </p>
     </div>
   );
-};
+}

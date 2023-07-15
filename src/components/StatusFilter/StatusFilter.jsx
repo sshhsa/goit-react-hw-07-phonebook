@@ -7,7 +7,7 @@ import { selectStatusFilter } from 'redux/selectors';
 
 import css from './StatusFilter.module.css';
 
-export const StatusFilter = () => {
+export function StatusFilter() {
   const dispatch = useDispatch();
   const filter = useSelector(selectStatusFilter);
 
@@ -41,4 +41,4 @@ export const StatusFilter = () => {
       </Button>
     </div>
   );
-};
+}

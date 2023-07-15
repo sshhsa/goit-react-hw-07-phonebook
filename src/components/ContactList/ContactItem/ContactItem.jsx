@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { deleteContact, toggleMarked } from '../../../redux/operations';
+import PropTypes from 'prop-types';
 import css from './ContactItem.module.css';
 
 export const ContactItem = ({ contact }) => {
@@ -28,4 +29,8 @@ export const ContactItem = ({ contact }) => {
       </button>
     </div>
   );
+};
+
+ContactItem.propTypes = {
+  contact: PropTypes.object.isRequired,
 };

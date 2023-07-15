@@ -4,7 +4,7 @@ import { addContact } from '../../redux/operations';
 import { Button } from 'components/Button/Button';
 import css from './ContactForm.module.css';
 
-export const ContactForm = () => {
+export function ContactForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
@@ -12,7 +12,7 @@ export const ContactForm = () => {
     const form = event.target;
     if (
       form.elements.name.value.trim() !== '' &&
-      form.elements.number.value.trim() !== ''
+      form.elements.number.value.trim().toString() !== ''
     ) {
       dispatch(
         addContact(
@@ -30,17 +30,17 @@ export const ContactForm = () => {
         className={css.field}
         type="name"
         name="name"
-        placeholder="Add your contact..."
+        placeholder="Contact name"
         autoComplete="off"
       />
       <input
         className={css.field}
         type="number"
         name="number"
-        placeholder="Add your contact..."
+        placeholder="Contact number"
         autoComplete="off"
       />
       <Button type="submit">Add contact</Button>
     </form>
   );
-};
+}
