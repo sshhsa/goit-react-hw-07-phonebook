@@ -10,18 +10,13 @@ export function ContactForm() {
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
-    if (
-      form.elements.name.value.trim() !== '' &&
-      form.elements.number.value.trim().toString() !== ''
-    ) {
-      dispatch(
-        addContact(
-          form.elements.name.value.trim(),
-          form.elements.number.value.trim()
-        )
-      );
-      form.reset();
-    }
+
+    const contact = {
+      name: form.elements.name.value.trim(),
+      number: form.elements.number.value.trim(),
+    };
+    dispatch(addContact(contact));
+    form.reset();
   };
 
   return (
