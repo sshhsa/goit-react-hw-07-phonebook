@@ -22,3 +22,17 @@ export const selectVisibleContacts = createSelector(
     }
   }
 );
+
+export const selectContactCount = createSelector([selectContacts], contacts => {
+  return contacts.reduce(
+    (count, contact) => {
+      if (contact.marked) {
+        count.marked += 1;
+      } else {
+        count.active += 1;
+      }
+      return count;
+    },
+    { active: 0, marked: 0 }
+  );
+});
